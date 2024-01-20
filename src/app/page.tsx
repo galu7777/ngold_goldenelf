@@ -27,10 +27,12 @@ export default function Home() {
     }
   }
 
+  //funcion para interactuar con el smart
   async function conectWallet(){
     if(typeof window.ethereum !== "undefined"){
       await requestAccount()
-      const provider = new ethers.providers.Web3Provider(window?.ethereum)    }
+      //const provider = new ethers.providers.Web3Provider(window?.ethereum)  
+      }
   }
 
   return (
