@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CallButton } from ".";
 import { FaWallet } from "react-icons/fa";
 
@@ -33,33 +33,35 @@ const Navbar = () => {
       //const provider = new ethers.providers.Web3Provider(window?.ethereum)
     }
   }
-
-  const changeNavbarColor = () => {
-    const navbar = document.getElementById("nav");
-    if (window.scrollY >= 88) {
-      navbar?.classList.add(
-        "bg-black/[0.1]",
-        "backdrop-blur-xl",
-        "backdrop-brightness-75",
-        "h-[5rem]"
-      );      
+  
+  //transicion de estilos de la navbar
+  useEffect(() => {
+    const changeNavbarColor = () => {
+      const navbar = document.getElementById("nav");
+      if (window.scrollY >= 88) {
+        navbar?.classList.add(
+          "bg-black/[0.1]",
+          "backdrop-blur-xl",
+          "backdrop-brightness-75"
+        );
+        navbar?.classList.remove("h-[6rem]");
       } else {
-    
-      navbar?.classList.remove(
-        "bg-black/[0.1]",
-        "backdrop-blur-xl",
-        "backdrop-brightness-75",
-        "h-[5rem]"
-      );
-    }
-  };
-
-  window?.addEventListener("scroll", changeNavbarColor);
+        navbar?.classList.remove(
+          "bg-black/[0.1]",
+          "backdrop-blur-xl",
+          "backdrop-brightness-75",
+          "h-[5rem]"
+        );
+        navbar?.classList.add("h-[6rem]");
+      }
+    };
+    window?.addEventListener("scroll", changeNavbarColor);
+  }, []);
 
   return (
     <nav
       id="nav"
-      className="flex items-center justify-center transition-all duration-150 w-[100%] h-[7rem] z-50 fixed top-0 left-0 right-0"
+      className="flex items-center justify-center transition-all duration-300 w-[100%] min-h-[5rem] h-[6rem] z-50 fixed top-0 left-0 right-0"
     >
       <div className="flex justify-between items-center w-[90%]">
         <Image
@@ -67,6 +69,7 @@ const Navbar = () => {
           alt="Golden elf icon"
           width={140}
           height={150}
+          className="h-auto w-auto"
         />
 
         <ul className="flex justify-between font-light w-[30rem] text-[0.9rem]">
