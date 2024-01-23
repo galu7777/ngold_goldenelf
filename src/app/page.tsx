@@ -1,4 +1,4 @@
-import { CallButton, Navbar } from "./components";
+import { CallButton, Card, Navbar } from "./components";
 
 export default function Home() {
   return (
@@ -6,12 +6,11 @@ export default function Home() {
       <main className="flex w-[100%] min-h-screen flex-col items-center justify-center relative">
         <Navbar />
         <div
-          className={`  bg-[url('/landingbg.jpg')] w-[100%] bg-no-repeat bg-cover bg-right-bottom `}
+          className={`  bg-[url('/landingbg.jpg')] w-[100%] bg-no-repeat bg-cover bg-right-bottom z-40`}
         >
           <div
             className={` bg-black/[0.4] w-[100%] backdrop-brightness-75 min-h-screen`}
           >
-
             <div className="flex flex-col items-center justify-center h-screen ">
               <div className="flex flex-col items-center justify-between h-[19rem] ">
                 <h1 className="text-[7rem] font-bold">Golden Elf</h1>
@@ -31,7 +30,18 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="h-screen">
+        <div className=" z-0 h-[100rem] absolute w-[100%] top-[58rem] blur-sm left-[0] bg-gradient-to-tr from-[#0C0A22]  to-[#05040D] skew-y-[-25deg]" />
+        <div className="h-[70rem] w-[100%] grid grid-col-11 gap-1">
+          <div className="col-span-11" />
+          <div />
+          <Card styles="h-[25rem] col-span-4"></Card>
+          <div />
+          <Card styles="h-[25rem] col-span-4"></Card>
+          <div />
+          <div />
+          <Card styles="h-[25rem] col-span-4"></Card>
+          <div />
+          <Card styles="h-[25rem] col-span-4"></Card>
         </div>
       </main>
     </>
