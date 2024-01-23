@@ -1,44 +1,39 @@
-"use client"
-
-import { ethers } from "ethers";
-import { useState } from "react";
+import { CallButton, Navbar } from "./components";
 
 export default function Home() {
-
-  const [walletAddress,setWalletAddress] = useState("")
-
-  //Requerir accesso a la WALLET de META MASK del usuario
-  async function requestAccount () {
-    if(window?.ethereum){    
-      try {
-        const accounts = await window?.ethereum.request({
-          method: "eth_requestAccounts"
-        })
-        setWalletAddress(accounts[0])
-        console.log(accounts);
-        
-      } catch (e:any) {
-        console.log(e.message);
-        
-      }
-
-    }  else {
-      console.log("nel")
-    }
-  }
-
-  //funcion para interactuar con el smart
-  async function conectWallet(){
-    if(typeof window.ethereum !== "undefined"){
-      await requestAccount()
-      //const provider = new ethers.providers.Web3Provider(window?.ethereum)  
-      }
-  }
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
-      <button onClick={()=>requestAccount()} className="h-[4rem] w-[10rem] border-[#ffffff] border-solid border-[1px]" >Metamask</button>
-      <h3>Wallet Address: {walletAddress}</h3>
-    </main>
-  )
+    <>
+      <main className="flex w-[100%] min-h-screen flex-col items-center justify-center relative">
+        <Navbar />
+        <div
+          className={`  bg-[url('/landingbg.jpg')] w-[100%] bg-no-repeat bg-cover bg-right-bottom `}
+        >
+          <div
+            className={` bg-black/[0.4] w-[100%] backdrop-brightness-75 min-h-screen`}
+          >
+
+            <div className="flex flex-col items-center justify-center h-screen ">
+              <div className="flex flex-col items-center justify-between h-[19rem] ">
+                <h1 className="text-[7rem] font-bold">Golden Elf</h1>
+                <div className="w-[85%] flex flex-col justify-between items-center h-[8rem]">
+                  <p className="text-[0.9rem] font-light text-center ">
+                    Golden Elf es una colección de 9,999 NFT basados en las
+                    leyendas e historias de los mineros de la región de Remedios
+                    en Antioquía, Colombia.
+                  </p>
+                  <CallButton
+                    text="Descargar White Paper"
+                    styles="bg-transparent border-solid border-[2px] border-[#fffff] text-[#ffffff] text-[0.9rem] w-[13rem]"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="h-screen">
+        </div>
+      </main>
+    </>
+  );
 }
