@@ -1,4 +1,8 @@
-import { CallButton, Card, Navbar } from "./components";
+import { BenefitsCard, CallButton, Card, Navbar } from "./components";
+import { FaWallet } from "react-icons/fa";
+import { PiArrowsLeftRightBold } from "react-icons/pi";
+import { TbWorld } from "react-icons/tb";
+import { PiMedalFill } from "react-icons/pi";
 
 export default function Home() {
   return (
@@ -31,17 +35,31 @@ export default function Home() {
         </div>
 
         <div className=" z-0 h-[100rem] absolute w-[100%] top-[58rem] blur-sm left-[0] bg-gradient-to-tr from-[#0C0A22]  to-[#05040D] skew-y-[-25deg]" />
-        <div className="h-[70rem] w-[100%] grid grid-col-11 gap-1">
-          <div className="col-span-11" />
-          <div />
-          <Card styles="h-[25rem] col-span-4"></Card>
-          <div />
-          <Card styles="h-[25rem] col-span-4"></Card>
-          <div />
-          <div />
-          <Card styles="h-[25rem] col-span-4"></Card>
-          <div />
-          <Card styles="h-[25rem] col-span-4"></Card>
+        <div className="h-[70rem] w-[100%] flex flex-col justify-around">
+          <div className="flex justify-around">
+            <BenefitsCard
+              title="Colecciona"
+              icon={FaWallet({})}
+              content="Compra una parte de nuestra historia y sé parte de la comunidad Gold Elf.¡Explora, elige y colecciona ahora! Dibujados por @luisordoñezoficial, mejor caricaturista del mundo."
+            />
+            <BenefitsCard
+              title="Tradea"
+              icon={PiArrowsLeftRightBold({})}
+              content="Intercambia todos los coleccionables oficiales de Golden elf con la tecnología blockchain, transfiere de forma segura la propiedad de tu NFT a cualquier otra persona en cualquier momento."
+            />
+          </div>
+          <div className="flex justify-around">
+            <BenefitsCard
+              title="Conecta"
+              icon={TbWorld({})}
+              content="Conéctate con nuestra apasionante comunidad online de aficionados y celebra descubriendo nuevos amigos."
+            />
+            <BenefitsCard
+              title="Gana"
+              icon={PiMedalFill({})}
+              content="Obten beneficios como: Monedas de oro físicas reales, Cuadros físicos con firmados por el artista Luis Ordoñez, Estatuas del Golden Elf bañadas en oro de 24 kilates y mucho mas."
+            />
+          </div>
         </div>
       </main>
     </>
