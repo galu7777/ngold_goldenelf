@@ -14,7 +14,7 @@ const CallButton:FC<Props> = ({text,styles,onClick,icon}) => {
     }    
 
   return (
-    <button onClick={onClick} className={`${styles}  ${icon?"justify-evenly":"justify-center"} h-[2.5rem] flex items-center rounded-[30px]`}>
+    <button onClick={onClick} className={`${styles}  ${icon?"justify-evenly":"justify-center"} h-[3rem] sm:h-[2.5rem] flex items-center rounded-[30px]`}>
         {icon}
         <p>{icon?displayLastNumbers(text):text}</p>
     </button>
