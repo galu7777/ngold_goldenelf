@@ -2,44 +2,29 @@
 import  { FC, useState } from "react";
 import { CallButton } from "..";
 import { FaWallet } from "react-icons/fa";
+import { displayLastNumbers, requestAccount } from "@/assets";
 
 interface Props {
     styles?:string
   }
 
 const WalletButton:FC<Props> = ({styles}) => {
-    const [walletAddress, setWalletAddress] = useState("");
-
-  //Requerir accesso a la WALLET de META MASK del usuario
-  async function requestAccount() {
-    if (walletAddress.length) return;
-
-    if (window?.ethereum) {
-      try {
-        const accounts = await window?.ethereum.request({
-          method: "eth_requestAccounts",
-        });
-        setWalletAddress(accounts[0]);
-        console.log(accounts);
-      } catch (e: any) {
-        console.log(e.message);
-      }
-    } else {
-      return;
-    }
-  }
+    const [walletAddress, setWalletAddress] = useState(""); 
+  
 
   //funcion para interactuar con el smart contract
   async function conectWallet() {
     if (typeof window.ethereum !== "undefined") {
-      await requestAccount();
+      //await requestAccount();
       //const provider = new ethers.providers.Web3Provider(window?.ethereum)
     }
   }
+
+  
   return (
     <CallButton
-      onClick={() => requestAccount()}
-      text={walletAddress.length ? walletAddress : "Conectar Wallet"}
+      onClick={() => requestAccount({walletAddress,setWalletAddress,window})}
+      text={walletAddress.length ? displayLastNumbers(walletAddress) : "Conectar Wallet"}
       icon={walletAddress.length ? FaWallet({}) : null}
       styles={`${styles} min-w-[10rem] sm:min-w-[8.5rem] text-[0.9rem] sm:text-[0.8rem] ${
         walletAddress.length
