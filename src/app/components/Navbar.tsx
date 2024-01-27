@@ -1,33 +1,14 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { CallButton } from ".";
-import { FaWallet } from "react-icons/fa";
+import { useEffect } from "react";
 import WalletButton from "./ux/button/WalletButton";
 import { HiOutlineDotsVertical } from "react-icons/hi";
+import Link from "next/link";
+import { changeNavbarColor } from "@/assets";
 
 const Navbar = () => {
   //transicion de estilos de la navbar
-  useEffect(() => {
-    const changeNavbarColor = () => {
-      const navbar = document.getElementById("nav");
-      if (window.scrollY >= 88) {
-        navbar?.classList.add(
-          "bg-black/[0.5]",
-          "backdrop-blur-md",
-          "backdrop-brightness-75",
-        );
-        navbar?.classList.remove("h-[5rem]");
-      } else {
-        navbar?.classList.remove(
-          "bg-black/[0.5]",
-          "backdrop-blur-md",
-          "backdrop-brightness-75",
-          "h-[5rem]"
-        );
-        navbar?.classList.add("h-[5rem]");
-      }
-    };
+  useEffect(() => {   
     window?.addEventListener("scroll", changeNavbarColor);
   }, []);
 
@@ -49,7 +30,9 @@ const Navbar = () => {
         <ul className="justify-between font-light w-[65%] text-[0.75rem] sm:w-[30rem] sm:text-[0.9rem] hidden sm:flex">
           <li>White Paper</li>
           <li>Nosotros</li>
+          <Link href={"/ngold"}>
           <li>Ngold</li>
+          </Link>
           <li>Tradea</li>
           <li>Coleccion</li>
         </ul>
