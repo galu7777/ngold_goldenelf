@@ -4,5 +4,9 @@
 
 body {
   color: #ffffff;
-  background: #0C0A22
+  background: #0c0a22;
+}
+.stroketext {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
 }

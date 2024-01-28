@@ -15,12 +15,23 @@ import { TbWorld } from "react-icons/tb";
 import { PiMedalFill } from "react-icons/pi";
 import Image from "next/image";
 import FilterItems from "@/app/components/ux/items/FilterItem";
+import Link from "next/link";
 
 export default function Collection() {
   return (
     <>
       <main className="flex w-[100%] min-h-screen flex-col items-center  relative">
-        <Navbar />
+        <Navbar logo={"/logo_gonden_elf.png"} n={false}>
+          <li>White Paper</li>
+          <li>Nosotros</li>
+          <Link href={"/ngold"}>
+            <li>Ngold</li>
+          </Link>
+          <li>Tradea</li>
+          <Link href={"/goldenelf/collection"}>
+            <li>Coleccion</li>
+          </Link>
+        </Navbar>
         <div
           className={`  bg-[url('/landingbg.jpg')] w-[100%] bg-no-repeat bg-cover bg-right-bottom z-40`}
         >
@@ -29,10 +40,10 @@ export default function Collection() {
           ></div>
         </div>
         {/* ------------------------> Info section <------------------------ */}
-        <div className="flex justify-center items-center w-[100%] h-[15rem] bg-[#171433] ">
-          <div className="flex justify-between items-center w-[80%]">
-            <div className="flex flex-col w-[37%] justify-between h-[6rem] ">
-              <h1 className="text-[5rem] leading-[5rem] sm:leading-[2.5rem] sm:text-[2.5rem] font-bold">
+        <div className="flex justify-center items-center w-[100%] h-[20rem] sm:h-[15rem] bg-[#171433] ">
+          <div className="flex flex-col sm:flex-row justify-between items-center h-[13rem] w-[90%]">
+            <div className="flex flex-col w-[90%] sm:w-[37%] justify-between h-[6rem] text-center sm:text-left ">
+              <h1 className="text-[2.5rem] leading-[2.5rem] sm:leading-[2.5rem] sm:text-[2.5rem] font-bold">
                 Golden Elf
               </h1>
               <p className="text-[0.8rem] leading-[0.9rem] font-extralight">
@@ -41,7 +52,7 @@ export default function Collection() {
                 Antioquía, Colombia.{" "}
               </p>
             </div>
-            <div className="flex justify-evenly items-center h-[4.5rem] w-[50%] bg-[#F8F8F8]/[0.1] rounded-[1.5rem]">
+            <div className="flex justify-evenly items-center h-[4.5rem] w-[100%] sm:w-[50%] bg-[#F8F8F8]/[0.1] rounded-[1.5rem]">
               <InfoItem title="Items" content="999.999" />
               <InfoItem title="Items Listed" content="852" />
               <InfoItem title="Lowest (ETH)" content="0,027" />
@@ -50,11 +61,11 @@ export default function Collection() {
           </div>
         </div>
         {/* ------------------------> filters section <------------------------ */}
-        <div className="flex justify-between w-[80%] items-center h-[10rem]">
-          <div className="flex flex-col justify-between h-[4rem]">
+        <div className="flex flex-col sm:flex-row justify-between w-[80%] sm:items-center h-[10rem] my-[2rem] sm:m-0">
+          <div className="flex flex-col w-[100%] sm:w-auto justify-between h-[4rem]">
             <p className="text-[0.85rem] font-extralight">Filtrar por</p>
-            <div className="flex ">
-              <FilterItems content="CRUX KING" />
+            <div className="flex overflow-hidden ">
+              <FilterItems content="CRUXKING" />
               <FilterItems content="SPECIAL" />
               <FilterItems content="LEGENDARY" />
               <FilterItems content="COMMON" />
@@ -63,7 +74,7 @@ export default function Collection() {
 
           <div className="flex flex-col justify-between h-[4rem]">
             <p className="text-[0.85rem] font-extralight">Ordenar por</p>
-            <div className="flex text-center justify-center cursor-pointer items-center bg-[#36325F] h-[2rem] px-[1rem] rounded-xl mr-[1rem]">
+            <div className="flex text-center justify-center max-w-[8rem] cursor-pointer items-center bg-[#36325F] h-[2rem] px-[1rem] rounded-xl mr-[1rem]">
               <p className=" font-medium text-[0.9rem]">Popularidad</p>
               <svg
                 className="fill-white "
@@ -78,12 +89,19 @@ export default function Collection() {
         </div>
         {/* ------------------------> cards section <------------------------ */}
 
-        <div className="w-[80%] flex">
-            <NFTCard/>
-            <NFTCard/>
-            <NFTCard/>
-            <NFTCard/>
-
+        <div className="w-[80%] flex flex-col">
+          <div className="flex flex-col sm:flex-row w-[100%] justify-between ">
+            <NFTCard small />
+            <NFTCard small />
+            <NFTCard small />
+            <NFTCard small />
+          </div>
+          <div className="flex flex-col sm:flex-row w-[100%] justify-between ">
+            <NFTCard small />
+            <NFTCard small />
+            <NFTCard small />
+            <NFTCard small />
+          </div>
         </div>
       </main>
     </>

@@ -13,19 +13,30 @@ import {
   import { TbWorld } from "react-icons/tb";
   import { PiMedalFill } from "react-icons/pi";
   import Image from "next/image";
+import Link from "next/link";
   
   export default function GolendElfPage() {
     return (
       <>
         <main className="flex w-[100%] min-h-screen flex-col items-center justify-center relative">
-          <Navbar />
+        <Navbar  logo={"/logo_gonden_elf.png"} n={false}>
+          <li>White Paper</li>
+          <li>Nosotros</li>
+          <Link href={"/ngold"}>
+          <li>Ngold</li>
+          </Link>
+          <li>Tradea</li>
+          <Link href={"/goldenelf/collection"}>
+          <li>Coleccion</li>
+          </Link>
+        </Navbar>
           <div
             className={`  bg-[url('/landingbg.jpg')] w-[100%] bg-no-repeat bg-cover bg-right-bottom z-40`}
           >
             <div
-              className={` bg-black/[0.4] w-[100%] backdrop-brightness-75 min-h-[40rem]`}
+              className={` bg-black/[0.4] w-[100%] backdrop-brightness-75 h-[35rem] sm:h-[50rem]`}
             >
-              <div className="flex flex-col items-center justify-center h-[45rem] ">
+              <div className="flex flex-col items-center justify-center h-[35rem] sm:h-[50rem] ">
                 <div className="flex flex-col items-center justify-between sm:h-[19rem] ">
                   <h1 className="text-[5rem] text-center leading-[5rem] sm:leading-[7rem] sm:text-[7rem] font-bold">
                     Golden Elf
@@ -82,7 +93,7 @@ import {
               <div className="h-[10rem] sm:h-[7rem] text-[4.5rem] text-center sm:text-[6rem] font-extrabold leading-[4.5rem] sm:leading-[5.5rem] [text-shadow:_2px_2px_4px_rgb(0_0_0_/_25%)]">
                 <h3>Golden Elf</h3>
               </div>
-              <div className="flex flex-col sm:flex-row justify-between h-[50rem] w-[90%] sm:w-[60%] items-center">
+              <div className="flex flex-col sm:flex-row justify-between h-[44rem] w-[90%] sm:w-[60%] items-center">
                 <NFTCard />
                 <div className="flex flex-col text-center sm:items-start items-center justify-between h-[17rem] sm:h-[15rem] sm:text-left w-[100%] sm:w-[45%]">
                   <div className="flex flex-col justify-between h-auto sm:h-[10rem]">
@@ -141,10 +152,14 @@ import {
                   Forma parte de Nuestra Historia
                 </h4>
                 <div className="flex flex-col sm:flex-row justify-between items-center sm:w-[20rem] h-[7rem] sm:h-[5rem] ">
+                <Link href={"/goldenelf/collection"}>
+
                   <CallButton
                     styles="text-[#77FFBD]  min-w-[15rem] sm:min-w-[8.5rem] text-[0.9rem] sm:text-[0.8rem] border-solid border-[1px] border-[#77FFBD]"
                     text="Ver Colecciones"
                   />
+                </Link>
+
                   <WalletButton styles="w-[15rem] sm:w-[8.5rem]" />
                 </div>
               </div>
