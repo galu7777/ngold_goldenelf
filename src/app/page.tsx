@@ -1,49 +1,19 @@
-import { CallButton, Card, Navbar } from "./components";
+import Link from "next/link";
+import React from "react";
 
-export default function Home() {
+const home = () => {
   return (
-    <>
-      <main className="flex w-[100%] min-h-screen flex-col items-center justify-center relative">
-        <Navbar />
-        <div
-          className={`  bg-[url('/landingbg.jpg')] w-[100%] bg-no-repeat bg-cover bg-right-bottom z-40`}
-        >
-          <div
-            className={` bg-black/[0.4] w-[100%] backdrop-brightness-75 min-h-screen`}
-          >
-            <div className="flex flex-col items-center justify-center h-screen ">
-              <div className="flex flex-col items-center justify-between h-[19rem] ">
-                <h1 className="text-[7rem] font-bold">Golden Elf</h1>
-                <div className="w-[85%] flex flex-col justify-between items-center h-[8rem]">
-                  <p className="text-[0.9rem] font-light text-center ">
-                    Golden Elf es una colección de 9,999 NFT basados en las
-                    leyendas e historias de los mineros de la región de Remedios
-                    en Antioquía, Colombia.
-                  </p>
-                  <CallButton
-                    text="Descargar White Paper"
-                    styles="bg-transparent border-solid border-[2px] border-[#fffff] text-[#ffffff] text-[0.9rem] w-[13rem]"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className=" z-0 h-[100rem] absolute w-[100%] top-[58rem] blur-sm left-[0] bg-gradient-to-tr from-[#0C0A22]  to-[#05040D] skew-y-[-25deg]" />
-        <div className="h-[70rem] w-[100%] grid grid-col-11 gap-1">
-          <div className="col-span-11" />
-          <div />
-          <Card styles="h-[25rem] col-span-4"></Card>
-          <div />
-          <Card styles="h-[25rem] col-span-4"></Card>
-          <div />
-          <div />
-          <Card styles="h-[25rem] col-span-4"></Card>
-          <div />
-          <Card styles="h-[25rem] col-span-4"></Card>
-        </div>
-      </main>
-    </>
+    <div className=" flex justify-center items-center h-screen">
+      <div className="flex flex-col justify-between items-center h-[5rem]">
+        <Link href={"/goldenelf"}>
+          <p>Golden Elf</p>
+        </Link>
+        <Link href={"/ngold"}>
+          <p>Ngold</p>
+        </Link>
+      </div>
+    </div>
   );
-}
+};
+
+export default home;
