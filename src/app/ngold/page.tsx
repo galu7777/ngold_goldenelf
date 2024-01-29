@@ -27,7 +27,9 @@ export default function NgoldPage() {
       <main className="flex w-[100%] min-h-screen flex-col items-center relative bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#131D29] to-[#06080C]">
         <Navbar logo={"/logo_light.png"} n={true}>
           <li>White Paper</li>
+          <div className="border-solid border-b-[1px] mb-[1rem] h-[1rem] border-[#5F5F5F]" />
           <li>Nosotros</li>
+          <div className="border-solid border-b-[1px] mb-[1rem] h-[1rem] border-[#5F5F5F]" />
           <Link href={"/goldenelf"}>
             <li>Golden Elf</li>
           </Link>
@@ -107,35 +109,35 @@ export default function NgoldPage() {
             content="La cantidad total de ETH actualmente en juego y asegurando la red."
           />
         </div>
-        <div className="w-[100%] h-[33rem] sm:hidden"/>
-      {/*-----------------------------> community section <---------------------------*/}
-      <div className="w-[100%] h-[35rem] sm:h-[55rem] flex justify-center items-center">
-            <Card styles=" h-[25rem] sm:h-[34rem] w-[80%] flex justify-evenly items-center">
-              <div className="flex flex-col justify-between items-center sm:items-start w-[90%] h-[20rem] sm:h-[25rem] sm:w-[35%]">
-                <Image
-                  src={"/logo_light.png"}
-                  alt="Ngold icon"
-                  height={52.5}
-                  width={132}
-                />
-  
-                <h4 className=" font-bold text-[2rem] sm:text-[3.5rem] leading-[2rem] text-center sm:text-left sm:leading-[3.5rem]">
-                  Unete a nuestra Comunidad
-                </h4>
-  
-                <SocialContainer />
-              </div>
-              <div className="hidden sm:flex">
-                <Image
-                  src={"/NGOLDCOIN.png"}
-                  alt="Ngold coin"
-                  width={400}
-                  height={400}
-                  className=" "
-                />
-              </div>
-            </Card>
-          </div>
+        <div className="w-[100%] h-[33rem] sm:hidden" />
+        {/*-----------------------------> community section <---------------------------*/}
+        <div className="w-[100%] h-[35rem] sm:h-[55rem] flex justify-center items-center">
+          <Card styles=" h-[25rem] sm:h-[34rem] w-[80%] flex justify-evenly items-center">
+            <div className="flex flex-col justify-between items-center sm:items-start w-[90%] h-[20rem] sm:h-[25rem] sm:w-[35%]">
+              <Image
+                src={"/logo_light.png"}
+                alt="Ngold icon"
+                height={52.5}
+                width={132}
+              />
+
+              <h4 className=" font-bold text-[2rem] sm:text-[3.5rem] leading-[2rem] text-center sm:text-left sm:leading-[3.5rem]">
+                Unete a nuestra Comunidad
+              </h4>
+
+              <SocialContainer />
+            </div>
+            <div className="hidden sm:flex">
+              <Image
+                src={"/NGOLDCOIN.png"}
+                alt="Ngold coin"
+                width={400}
+                height={400}
+                className=" "
+              />
+            </div>
+          </Card>
+        </div>
       </main>
     </>
   );
