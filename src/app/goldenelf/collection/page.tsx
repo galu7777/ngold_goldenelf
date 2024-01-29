@@ -22,14 +22,18 @@ export default function Collection() {
     <>
       <main className="flex w-[100%] min-h-screen flex-col items-center  relative">
         <Navbar logo={"/logo_gonden_elf.png"} n={false}>
-          <li>White Paper</li>
+        <li >White Paper</li>
+          <div className="border-solid border-b-[1px] mb-[1rem] h-[1rem] border-[#5F5F5F]"/>
           <li>Nosotros</li>
+          <div className="border-solid border-b-[1px] mb-[1rem] h-[1rem] border-[#5F5F5F]"/>
           <Link href={"/ngold"}>
-            <li>Ngold</li>
+          <li>Ngold</li>
           </Link>
+          <div className="border-solid border-b-[1px] mb-[1rem] h-[1rem] border-[#5F5F5F]"/>
           <li>Tradea</li>
+          <div className="border-solid border-b-[1px] mb-[1rem] h-[1rem] border-[#5F5F5F]"/>
           <Link href={"/goldenelf/collection"}>
-            <li>Coleccion</li>
+          <li>Coleccion</li>
           </Link>
         </Navbar>
         <div
