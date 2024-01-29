@@ -34,7 +34,7 @@ const NFTCard: FC<Props> = ({ styles, imgstyles, small }) => {
             gasPrice: web3.utils.toWei("30", "gwei"),
           });
       
-        console.log('Transaction response:', response);
+        //console.log('Transaction response:', response);
       } catch (error) {
         console.error('Error sending transaction:', error);
       }
