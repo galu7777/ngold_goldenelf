@@ -6,6 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 // Contrato GoldenElf
 contract GoldenElf is ERC721, Ownable {
+    using Strings for uint256;
     // Dirección del propietario inicial
     address public _initialOwner = 0x9465B25131b9ee5fcfAA34DeC91ED5De4db14c4E;
     

@@ -1,3 +1,7 @@
+"use client"
+import { useEffect, useState } from "react";
+import Web3 from "web3";
+import abi from '../../../assets/wallet/abi.json';
 import {
   BenefitsCard,
   CallButton,
@@ -17,7 +21,54 @@ import Image from "next/image";
 import FilterItems from "@/app/components/ux/items/FilterItem";
 import Link from "next/link";
 
+type ContractInfo = {
+  0: string;  // Cambia el tipo según la propiedad real en la posición 0
+  1: BigInt;  // Cambia el tipo según la propiedad real en la posición 1
+  2: BigInt;
+  // Agrega más propiedades según la estructura del contrato
+};
+
 export default function Collection() {
+
+  const [loading, setLoading] = useState(true);
+  const [supply, setSupply] = useState<string | number>("");
+  const [balance, setBalance] = useState<string | number>("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const web3 = new Web3(window.ethereum);
+        const contractAddress = "0x48427bFCCfffad01cd207939067a81dD3Bbc5E4a";
+        const contractAbi = abi.abi;
+        const contract = new web3.eth.Contract(contractAbi, contractAddress);
+
+        const totalSupplyBigInt: BigInt | undefined = await contract.methods.totalSupply().call();
+        const infoContract: ContractInfo = await contract.methods.infoSmartContract().call();
+
+        if (totalSupplyBigInt !== undefined) {
+          const totalSupplyString = totalSupplyBigInt.toString(); // Convertir BigInt a string
+          setSupply(totalSupplyString);
+        } else {
+          console.error('Error: totalSupplyBigInt es undefined.');
+        }
+
+        if (infoContract !== undefined) {
+          const valueBalance: BigInt | undefined = infoContract[1];
+          const valueBalanceString = valueBalance.toString();
+          setBalance(valueBalanceString);  // Suponiendo que 'value' es la propiedad que contiene el valor numérico
+        } else {
+          console.error('Error: SC_money no es un objeto válido.');
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <main className="flex w-[100%] min-h-screen flex-col items-center  relative">
@@ -57,10 +108,25 @@ export default function Collection() {
               </p>
             </div>
             <div className="flex justify-evenly items-center h-[4.5rem] w-[100%] sm:w-[50%] bg-[#F8F8F8]/[0.1] rounded-[1.5rem]">
-              <InfoItem title="Items" content="999.999" />
-              <InfoItem title="Items Listed" content="852" />
+              <InfoItem title="Total Elf" content="9.999"/>
+              {
+                loading ? (
+                  // Muestra algún indicador de carga
+                  <p>Cargando...</p>
+                ) : (
+                  <InfoItem title="Elf created" content={supply} />
+                )
+              }
+              {/*<InfoItem title="Items Listed" content={supply} />*/}
               <InfoItem title="Lowest (ETH)" content="0,027" />
-              <InfoItem title="Vol (ETH)" content="0,053" />
+              {
+                loading ? (
+                  // Muestra algún indicador de carga
+                  <p>Cargando...</p>
+                ) : (
+                  <InfoItem title="Vol (ETH)" content={balance} />
+                )
+              }
             </div>
           </div>
         </div>
