@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 interface Props {
     title:string
-    content:string
+    content:string|number
 }
 
 const InfoItems:FC<Props> = ({title,content}) => {
