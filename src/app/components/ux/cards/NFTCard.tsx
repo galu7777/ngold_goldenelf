@@ -22,17 +22,22 @@ const NFTCard: FC<Props> = ({ styles, imgstyles, small }) => {
       const contractAbi = abi.abi;
       const contract = new web3.eth.Contract(contractAbi, contractAddress);
       
-      const gasAmount = 352804;
+      const gasAmount = 300000;
 
-      const response = await contract.methods
-        .createRandomArtWork("NFTNombre")
-        .send({ 
-          from: accounts[0], 
-          value: web3.utils.toWei("0.1", "ether"),
-          gas: gasAmount,
-        });
-  
-      console.log('Transaction response:', response);
+      try {
+        const response = await contract.methods
+          .createCustomArtWork("CommonElf", "Common")
+          .send({
+            from: accounts[0],
+            value: web3.utils.toWei("0.01", "ether"),
+            gas: gasAmount,
+            gasPrice: web3.utils.toWei("30", "gwei"),
+          });
+      
+        console.log('Transaction response:', response);
+      } catch (error) {
+        console.error('Error sending transaction:', error);
+      }
     } catch (error) {
       console.error('Error buying NFT:', error);
       // Muestra mensajes de error específicos según el tipo de error
@@ -65,7 +70,9 @@ const NFTCard: FC<Props> = ({ styles, imgstyles, small }) => {
             <p className={`${small === true ? "text-[0.8rem]" : " text-[1.3rem]"} font-bold`}>0.01 ETH</p>
           </div>
           <div>
-            <button onClick={handleBuyNFT}>
+            <button 
+              onClick={handleBuyNFT}
+            >
               Comprar
             </button>
           </div>
