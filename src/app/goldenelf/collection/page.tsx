@@ -108,13 +108,13 @@ export default function Collection() {
               </p>
             </div>
             <div className="flex justify-evenly items-center h-[4.5rem] w-[100%] sm:w-[50%] bg-[#F8F8F8]/[0.1] rounded-[1.5rem]">
-              <InfoItem title="Items" content="9.999"/>
+              <InfoItem title="Total Elf" content="9.999"/>
               {
                 loading ? (
                   // Muestra algún indicador de carga
                   <p>Cargando...</p>
                 ) : (
-                  <InfoItem title="Items" content={supply} />
+                  <InfoItem title="Elf created" content={supply} />
                 )
               }
               {/*<InfoItem title="Items Listed" content={supply} />*/}
