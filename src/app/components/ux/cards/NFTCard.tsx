@@ -30,7 +30,7 @@ const NFTCard: FC<Props> = ({ styles, imgstyles, small }) => {
           .send({
             from: accounts[0],
             value: web3.utils.toWei("0.01", "ether"),
-            gas: gasAmount,
+            gas: gasAmount.toString(),
             gasPrice: web3.utils.toWei("30", "gwei"),
           });
       
