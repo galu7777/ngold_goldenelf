@@ -1,3 +1,7 @@
+const HDWalletProvider = require('@truffle/hdwallet-provider')
+const privateKeys = [
+  '3660b5e5e4144d09633ef4220fb43a97a63001cd3a269d3e4f519a0e758bfde8' // Acccount 1
+]
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -82,13 +86,22 @@ module.exports = {
     //
     // Useful for deploying to a public network.
     // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
-    // goerli: {
-    //   provider: () => new HDWalletProvider(MNEMONIC, `https://goerli.infura.io/v3/${PROJECT_ID}`),
-    //   network_id: 5,       // Goerli's id
-    //   confirmations: 2,    // # of confirmations to wait between deployments. (default: 0)
-    //   timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-    //   skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-    // },
+    sepolia: {
+      provider: () => new HDWalletProvider({
+        privateKeys: privateKeys,
+        providerOrUrl: 'https://sepolia.infura.io/v3/a6c6e2bb6a024c9f977f3082c68d2b99',
+        numberOfAddresses: 1
+      }),
+      network_id: 11155111,       // Linea id
+      confirmations: 2,    // # of confirmations to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+    development: {
+      host: "127.0.0.1",
+      port: 7545,
+      network_id: "*"
+    },
     //
     // Useful for private networks
     // private: {
@@ -106,15 +119,15 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.17" // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.17", // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
-      // settings: {          // See the solidity docs for advice about optimization and evmVersion
-      //  optimizer: {
-      //    enabled: false,
-      //    runs: 200
-      //  },
-      //  evmVersion: "byzantium"
-      // }
+      settings: {          // See the solidity docs for advice about optimization and evmVersion
+      optimizer: {
+        enabled: true,
+        runs: 200
+      },
+      // evmVersion: "byzantium"
+      }
     }
   }
 

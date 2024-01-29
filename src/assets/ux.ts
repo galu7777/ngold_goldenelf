@@ -6,15 +6,15 @@ export const changeNavbarColor = () => {
         "backdrop-blur-md",
         "backdrop-brightness-75",
       );
-      navbar?.classList.remove("h-[5rem]");
+      navbar?.classList.remove("h-[15vh]");
     } else {
       navbar?.classList.remove(
         "bg-black/[0.5]",
         "backdrop-blur-md",
         "backdrop-brightness-75",
-        "h-[5rem]"
+        "h-[15vh]"
       );
-      navbar?.classList.add("h-[5rem]");
+      navbar?.classList.add("h-[12vh]");
     }
   };
 
