@@ -52,7 +52,7 @@ const NFTCard: FC<Props> = ({ styles, imgstyles, small }) => {
   return (
     <div onClick={small === true ? handleBuyNFT : ()=>{}} className={` cursor-pointer px-[1.4rem] py-[1.4rem] rounded-[1rem] flex flex-col items-center justify-between shadow-sm  bg-white/[0.13] backdrop-blur-sm backdrop-brightness-75 ${small ? " mb-[1rem] sm:w-[15.5rem] h-[23rem]" : "sm:w-[22rem] sm:h-[30rem] w-[17rem] h-[25rem] border-solid border-[1px] border-white/[0.3]"}`}>
       <Image
-        src={"/7643d9a8-86ca-48eb-be3c-c3f483e71218.jpg"}
+        src={"/https://res.cloudinary.com/div8rdrjb/image/upload/v1706200175/GoldenElf/elf-10_svfptn.jpg"}
         alt="elf_8"
         width={300}
         height={300}
